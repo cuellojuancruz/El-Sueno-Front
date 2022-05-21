@@ -1,16 +1,16 @@
 import React from 'react';
-import NavBar from './../NavBar/NavBar'
 
 
 
-function Home(){
+
+function Card(){
   
 
     return(
 
         <div>
         
-          <NavBar></NavBar>
+          <h1>Card</h1>
         
         </div>
     
@@ -21,4 +21,4 @@ function Home(){
 
 
 
-export default Home
+export default Card

@@ -1,20 +1,33 @@
-import NavBar  from "./components/NavBar/NavBar";
+
 import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
+import Nosotros from "./components/Nosotros/Nosotros"
+import Productos from "./components/Productos/Productos";
+import Novedades from "./components/Novedades/Novedades";
+import Promociones from "./components/Promociones/Promociones";
+import Purchas from "./components/Purchas/Purchas";
 
 
 import React from "react";
 import { Route } from "react-router-dom";
 import './App.css';
-import LogOut from "./components/LogOut/LogOut";
+
 
 function App() {
   return (
     <React.Fragment>
-      <Route exact path="/" component={Login} />
-      <Route path="/home" component={LogOut} />    
-      <Route path="/home" component={NavBar} />
-      <Route exact path="/home" component={Home} />
+   
+      <Route exact path="/" component={Home}/>
+      
+      <Route exact path="/Productos" component={Productos}/>
+      
+      <Route exact path="/Promociones" component={Promociones}/>
+      
+      <Route exact path="/Purchas" component={Purchas}/>
+      
+      <Route exact path="/Novedades" component={Novedades}/>
+
+      <Route path="/Nosotros" component={Nosotros}/>
+      
     </React.Fragment>
   );
 }
