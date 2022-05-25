@@ -1,23 +1,29 @@
 import React from 'react';
-import {Link} from "react-router-dom"
-
+import Onlycard from './../Card/Card'
+import { useEffect } from "react";
+import getproducts from '../../redux/Card/actions';
+import { useDispatch } from 'react-redux';
 
 function Productos(){
   
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getproducts())
+  }, [dispatch])
+
+
+
 
     return(
 
         <div>
             
-            <Link to = "/">
-            <button>Inicio</button>
-            </Link>
-            
-            <h1>Productos</h1>
+            <Onlycard></Onlycard>
         
         </div>
-    
-        )
+    )
 }
 
 

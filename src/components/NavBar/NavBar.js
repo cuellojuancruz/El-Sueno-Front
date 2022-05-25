@@ -46,7 +46,7 @@ export function NavBar(){
 
 
 
-<div classname="Fondo">
+<div className="Fondo">
 
     <button>contactos</button>
 
@@ -78,7 +78,7 @@ export function NavBar(){
     </Link >
 </ButtonGroup>
 
-<img src="https://www.crushpixel.com/big-static16/preview4/vector-empty-wooden-shelf-backgroundempty-2441451.jpg" alt="" classname="Fondo"/>
+{/* <img src="https://www.crushpixel.com/big-static16/preview4/vector-empty-wooden-shelf-backgroundempty-2441451.jpg" alt="" className="Fondo"/> */}
 
 
         </div>

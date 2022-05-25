@@ -5,6 +5,7 @@ import Productos from "./components/Productos/Productos";
 import Novedades from "./components/Novedades/Novedades";
 import Promociones from "./components/Promociones/Promociones";
 import Purchas from "./components/Purchas/Purchas";
+import NavBar from "./components/NavBar/NavBar";
 
 
 import React from "react";
@@ -16,6 +17,8 @@ function App() {
   return (
     <React.Fragment>
    
+      <Route path="/" component={NavBar}/>
+      
       <Route exact path="/" component={Home}/>
       
       <Route exact path="/Productos" component={Productos}/>
