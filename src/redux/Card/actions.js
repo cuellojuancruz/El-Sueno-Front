@@ -3,19 +3,65 @@ import axios from 'axios'
 
 
 
-export default function getproducts() {
+export function getproducts() {
     return function(dispatch){
-        console.log("entro a la actionssss")
         return axios.get('http://localhost:3001/product/getProduct/')
         .then((res) => {
-            console.log(res.data  + " data del res")
             dispatch({
                 type:"getProducts",
                 payload: res.data
             })
         },
         function error(err){
-            console.log("fallo")
+            console.log(err)
         })
     }
 }
+
+export function getnewproducts(limit){
+    return function(dispatch){
+        return axios.get(`http://localhost:3001/product/getProduct/${limit}`,)
+        .then((res) => {
+            dispatch({
+                type: "getnewproducts",
+                payload: res.data
+            })
+        })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
