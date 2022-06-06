@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 import  createProduct  from "./home/reducer";
-import Product from "./Card/reducer";
+import Products from "./home/reducer";
 
 
 
 
 const rootReducer = combineReducers({
   createProduct: createProduct,
-  Product: Product,
+  Producst: Products,
 
   });
 
