@@ -1,27 +1,14 @@
 import axios from 'axios';
 
 
-export function createProduct (product) {
+export function searchproduct (name) {
+    console.log("entro al search")
     return function (dispatch) {
-        axios.post(`http://localhost:3001/product/createProduct/`, product)
-        .then((res) => {
-            dispatch({
-                type: "createProduct",
-                payload: res.data
-            })
+        dispatch({
+            type: "Search",
+            payload: name
         })
     }
 }
 
 
-// export function creategames (datos) {
-//     return function (dispatch) {
-//         axios.post(`http://localhost:3001/videogame/`, {datos})
-//         .then((res) => {
-//             dispatch({
-//                 type: "creategame",
-//                 payload: res.data
-//             })
-//         })
-//     }
-// }

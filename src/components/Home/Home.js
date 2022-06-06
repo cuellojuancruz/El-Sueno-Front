@@ -12,23 +12,23 @@ import { CardActionArea } from '@mui/material';
 
 function Home(props){
 
-
+    console.log(Object.keys(props.newproducts))
     const dispatch = useDispatch()
   
     useEffect(() => {
-        dispatch(getnewproducts())
+        dispatch(getnewproducts(5))
     }, [dispatch])
   
-
-
     return(
 
         <div>
 
-            {props.newproducts?.map(product => {
+            {
+            props.newproducts.length > 0
+            ? 
+            props.newproducts.map(product => {
 
                 return(
-
                     <Card sx={{ maxWidth: 200 }}>
                     <CardActionArea>
                       <CardMedia sx={{ maxWidth: 100 }}
@@ -47,20 +47,20 @@ function Home(props){
                       </CardContent>
                     </CardActionArea>
                   </Card>
-
-                )
-
-            }
-        )}    
+              )
+        })
+        : null
+        }
         </div>
-    
     )
 }
+
+
 
 const mapStateToProps = function(state){
     return{
         newproducts: state.createProduct.newproducts
-    }
+          }
 }
 
 export default connect(mapStateToProps)(Home);
