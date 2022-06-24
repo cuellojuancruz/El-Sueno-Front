@@ -12,7 +12,7 @@ ReactDOM.render(
   <Provider store={store}>
     {/* <React.StrictMode> */}
       <BrowserRouter>
-        <Auth0Provider domain="dev-4ivkxcfj.us.auth0.com" clientId="F1atauA05Hr2iD9NveSQuRk9sI0ELQjg" redirectUri="http://localhost:3000/home">
+        <Auth0Provider domain="dev-tr0vgaux.us.auth0.com" clientId="3hAsdKBCYROUx1kCPzsdeXnTDlXfj79y" redirectUri="http://localhost:3000/home">
           <App/>
         </Auth0Provider>
       </BrowserRouter>
