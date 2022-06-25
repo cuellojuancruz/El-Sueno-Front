@@ -78,6 +78,10 @@ export function NavBar(){
     <Link to = "/Nosotros">
     <Button>Nosotros</Button>
     </Link>
+    
+    <Link to = "/Profile">
+    <Button>Profile</Button>
+    </Link>
 
     <Link to = "/Productos">
     <Button>Productos</Button>

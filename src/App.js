@@ -8,7 +8,7 @@ import Purchas from "./components/Purchas/Purchas";
 import NavBar from "./components/NavBar/NavBar";
 import LoginButton from "./components/Login/Login";
 import LogOut from "./components/LogOut/LogOut";
-
+import User from "./components/User/User"
 
 
 import { useAuth0 } from "@auth0/auth0-react"
@@ -58,6 +58,8 @@ function App(){
           <Route exact path="/" component={Home}/>
           
           <Route exact path="/Productos" component={Productos}/>
+          
+          <Route exact path="/Profile" component={User}/>
   
           <Route exact path="/Promociones" component={Promociones}/>
   
