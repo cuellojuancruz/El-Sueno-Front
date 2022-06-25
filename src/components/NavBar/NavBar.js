@@ -10,6 +10,7 @@ import { getnewproducts } from '../../redux/Card/actions';
 import { useDispatch } from 'react-redux';
 import {searchproduct} from '../../redux/Card/actions'
 import "./NavBar.css"
+import LogOut from '../LogOut/LogOut';
 
 
 
@@ -65,6 +66,7 @@ export function NavBar(){
 
 <div className="Fondo">
 
+    <LogOut></LogOut>  
     <button>contactos</button>
 
 <ButtonGroup size="small" variant="contained" color="primary" aria-label="contained primary button group" className={classes.root}>
