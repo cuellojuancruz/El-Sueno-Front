@@ -10,13 +10,13 @@ import  { Auth0Provider } from "@auth0/auth0-react"
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* <React.StrictMode> */}
+    
       <BrowserRouter>
         <Auth0Provider domain="dev-tr0vgaux.us.auth0.com" clientId="3hAsdKBCYROUx1kCPzsdeXnTDlXfj79y" redirectUri="http://localhost:3000/home">
           <App/>
         </Auth0Provider>
       </BrowserRouter>
-    {/* </React.StrictMode> */}
+    
   </Provider>,
   document.getElementById('root')
 );
