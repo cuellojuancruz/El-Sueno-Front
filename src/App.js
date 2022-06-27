@@ -8,23 +8,34 @@ import Purchas from "./components/Purchas/Purchas";
 import NavBar from "./components/NavBar/NavBar";
 import LoginButton from "./components/Login/Login";
 import LogOut from "./components/LogOut/LogOut";
-import User from "./components/User/User"
+import Profile from "./components/User/User"
+import { setUsers } from "./redux/Card/actions";
+import { setAuthenticated } from "./redux/Card/actions";
 
 
-import { useAuth0 } from "@auth0/auth0-react"
-import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react"
+import { useDispatch } from "react-redux";
+import { Auth0Provider } from "@auth0/auth0-react";
 import { Route } from "react-router-dom";
 import './App.css';
+import { useEffect } from "react";
 
 
 
 function App(){
 
-
+  const dispatch = useDispatch()
   const { isLoading } = useAuth0()
   const { isAuthenticated }= useAuth0()
-  console.log(isAuthenticated)
+  const { user }= useAuth0()
+  console.log("dentro del app",user)
+
+  useEffect(() => {
+    console.log("useEfect " ,user)
+    dispatch(setUsers(user))
+    dispatch(setAuthenticated(isAuthenticated))
+  }, [isAuthenticated])
 
   return(
     
@@ -59,7 +70,7 @@ function App(){
           
           <Route exact path="/Productos" component={Productos}/>
           
-          <Route exact path="/Profile" component={User}/>
+          <Route exact path="/Profile" component={Profile}/>
   
           <Route exact path="/Promociones" component={Promociones}/>
   

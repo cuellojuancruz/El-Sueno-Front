@@ -1,6 +1,8 @@
 const initialState = {
     products: [],
     newproducts: [],
+    users: {},
+    authenticated: false
 }
 
 
@@ -14,6 +16,22 @@ function Products (state = initialState, action){
             return {
                 ...state,
                 products: [...state.products, action.payload]
+            }
+        }
+
+        if(action.type === "setUsers"){
+            console.log("entro al if", action.payload)
+            return {
+                ...state,
+                users: action.payload
+            }
+        }
+
+        if(action.type === "setAuthenticated"){
+            console.log("entro al if", action.payload)
+            return {
+                ...state,
+                authenticated: action.payload
             }
         }
 

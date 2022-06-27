@@ -34,6 +34,16 @@ export function searchproduct (name) {
     }
 }
 
+
+export function setUsers(payload){
+    console.log("entro a la action ",payload)
+    return {type:"setUsers", payload: payload}
+}
+export function setAuthenticated(payload){
+    console.log("entro a la action ",payload)
+    return {type:"setAuthenticated", payload: payload}
+}
+
 export function getnewproducts(limit){
     return function(dispatch){
         return axios.get(`http://localhost:3001/product/getProduct/${limit}`)
