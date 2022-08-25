@@ -6,8 +6,6 @@ const Profile = () => {
   const { isLoading } = useAuth0();
   const user = useSelector((state) => state.createProduct.users)
   const isAuthenticated = useSelector((state) => state.createProduct.authenticated)
-  console.log(user)
-
 
 
   if (isLoading) {
