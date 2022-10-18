@@ -36,11 +36,17 @@ export function searchproduct (name) {
 
 
 export function setUsers(payload){
-    console.log("entro a la action ",payload)
+
     return {type:"setUsers", payload: payload}
 }
-export function setAuthenticated(payload){
+
+export function setTypeUser(payload){
     console.log("entro a la action ",payload)
+    return {type:"setTypeUser", payload: payload}
+}
+
+export function setAuthenticated(payload){
+
     return {type:"setAuthenticated", payload: payload}
 }
 
