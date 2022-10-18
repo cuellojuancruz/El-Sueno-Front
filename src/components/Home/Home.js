@@ -1,111 +1,66 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getnewproducts } from '../../redux/Card/actions';
+import { useDispatch } from 'react-redux';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
-import { useState } from "react"
-import { connect, useDispatch } from "react-redux"
-import { createProduct } from "../../redux/home/actions"
 
 
 function Home(props){
-  
-    console.log(props, "las propss")
 
+    console.log(Object.keys(props.newproducts))
     const dispatch = useDispatch()
-
-    const initialState = {name: "", description: "", expirationdate: undefined}
-
-
-    const [product, setProduct] = useState(initialState)
-
-    const {name, description, expirationdate} = product
-
-
-    function handleName(e){
-        setProduct({
-            ...product,
-            name: e.target.value
-        })
-    }
-
-
-    function handleDescription(e){
-        setProduct({
-            ...product,
-            description: e.target.value
-        })
-    }
-
-    function handleExpirationdate(e){
-        setProduct({
-            ...product,
-            expirationdate: e.target.value
-        })
-    }
-
-    function handleCreate (e){
-        e.preventDefault()
-        console.log("entro al create")
-        dispatch(createProduct(product))
-    }
-
+  
+    useEffect(() => {
+        dispatch(getnewproducts(5))
+    }, [dispatch])
+  
     return(
-     
 
         <div>
 
-                    
-            <form onSubmit={(e) => handleCreate(e)}>
-                <label>Producto</label>
-                <input
-                type="text"
-                name="name"
-                placeholder="Nombre"
-                value={name}
-                onChange={(e) => handleName(e)}
-                />
+            {
+            props.newproducts.length > 0
+            ? 
+            props.newproducts.map(product => {
 
-                <label>descripcion</label>
-                <input
-                type="text"
-                name="description"
-                placeholder="Descripción"
-                value={description}
-                onChange={(e) => handleDescription(e)}
-                />
-
-                <label>fecha de expiracion</label>
-                <input
-                type="date"
-                name="description"
-                placeholder="descripción"
-                value={expirationdate}
-                onChange={(e) => handleExpirationdate(e)}
-                />
-
-                <button type="submit">Crear producto</button>
-            </form>
-
-
-
+                return(
+                    <Card sx={{ maxWidth: 200 }}>
+                    <CardActionArea>
+                      <CardMedia sx={{ maxWidth: 100 }}
+                        component="img"
+                        height="120"
+                        image="https://hiperlibertad.vteximg.com.br/arquivos/ids/177607-1000-1000/DULCE-DE-LECHE-LS-COLONIAL-400G-DUL-LECHE-LS-COLONIAL-400G-1-18083.jpg?v=637552288915700000"
+                        alt="green iguana"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {product.name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                        Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+              )
+        })
+        : null
+        }
         </div>
-        
-        )
-    
-
-}
-
-function mapStateToProps(state) {
-    return {
-        product: state.createProduct.products
-    }
-}
-
-
-function mapDispatchToProps(dispatch) {
-    return {
-        createProduct: (product) => dispatch(createProduct(product)),
-    }
+    )
 }
 
 
 
+const mapStateToProps = function(state){
+    return{
+        newproducts: state.createProduct.newproducts
+          }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps) (Home)
+export default connect(mapStateToProps)(Home);
